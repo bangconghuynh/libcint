@@ -86,7 +86,9 @@
   '("int1e_spgsp"               (g sigma dot p \| sigma dot p))
   '("int1e_spgnucsp"            (g sigma dot p \| nuc \| sigma dot p))
   '("int1e_spgsa01"             (g sigma dot p \| nabla-rinv cross sigma \|))
+  '("int1e_p"                   (p \|))
   '("int1e_pp"                  (p \| p))
+  '("int1e_spp"                 (sigma dot p \| p))
 )
 
 (gen-cint "intor4.c"
