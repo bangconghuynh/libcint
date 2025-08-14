@@ -89,9 +89,9 @@
   '("int1e_p"                   (p \|))
   '("int1e_pp"                  (p \| p))
   '("int1e_spp"                 (sigma dot p \| p))
-  '("int1e_spsxpx"              (sigma dot p \| sigmax px))
-  '("int1e_spsypy"              (sigma dot p \| sigmay py))
-  '("int1e_spszpz"              (sigma dot p \| sigmaz pz))
+  '("int1e_spsxpx"              (sigma dot p \| comp-x sigma comp-x p))
+  '("int1e_spsypy"              (sigma dot p \| comp-y sigma comp-y p))
+  '("int1e_spszpz"              (sigma dot p \| comp-z sigma comp-z p))
 )
 
 (gen-cint "intor4.c"

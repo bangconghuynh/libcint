@@ -2452,7 +2452,7 @@ return CINT1e_spinor_drv(out, dims, &envs, cache, &c2s_si_1ei, 0);
 } // int1e_spp_spinor
 ALL_CINT1E(int1e_spp)
 ALL_CINT1E_FORTRAN_(int1e_spp)
-/* <SIGMA DOT P i|OVLP |SIGMAX PX j> */
+/* <SIGMA DOT P i|OVLP |COMP-X SIGMA COMP-X P j> */
 void CINTgout1e_int1e_spsxpx(double *gout, double *g, FINT *idx, CINTEnvVars *envs, FINT gout_empty) {
 FINT nf = envs->nf;
 FINT ix, iy, iz, n;
@@ -2478,15 +2478,15 @@ s[6] = + g1[ix+0]*g0[iy+0]*g2[iz+0];
 s[7] = + g0[ix+0]*g1[iy+0]*g2[iz+0];
 s[8] = + g0[ix+0]*g0[iy+0]*g3[iz+0];
 if (gout_empty) {
-gout[n*4+0] = - c[0]*s[2];
-gout[n*4+1] = - c[0]*s[5];
-gout[n*4+2] = - c[0]*s[8];
-gout[n*4+3] = 0;
+gout[n*4+0] = 0;
+gout[n*4+1] = + s[6];
+gout[n*4+2] = - s[3];
+gout[n*4+3] = + s[0];
 } else {
-gout[n*4+0] += - c[0]*s[2];
-gout[n*4+1] += - c[0]*s[5];
-gout[n*4+2] += - c[0]*s[8];
-gout[n*4+3] += 0;
+gout[n*4+0] += 0;
+gout[n*4+1] += + s[6];
+gout[n*4+2] += - s[3];
+gout[n*4+3] += + s[0];
 }}}
 void int1e_spsxpx_optimizer(CINTOpt **opt, FINT *atm, FINT natm, FINT *bas, FINT nbas, double *env) {
 FINT ng[] = {1, 1, 0, 0, 2, 4, 1, 1};
@@ -2514,11 +2514,11 @@ FINT ng[] = {1, 1, 0, 0, 2, 4, 1, 1};
 CINTEnvVars envs;
 CINTinit_int1e_EnvVars(&envs, ng, shls, atm, natm, bas, nbas, env);
 envs.f_gout = &CINTgout1e_int1e_spsxpx;
-return CINT1e_spinor_drv(out, dims, &envs, cache, &c2s_si_1ei, 0);
+return CINT1e_spinor_drv(out, dims, &envs, cache, &c2s_si_1e, 0);
 } // int1e_spsxpx_spinor
 ALL_CINT1E(int1e_spsxpx)
 ALL_CINT1E_FORTRAN_(int1e_spsxpx)
-/* <SIGMA DOT P i|OVLP |SIGMAY PY j> */
+/* <SIGMA DOT P i|OVLP |COMP-Y SIGMA COMP-Y P j> */
 void CINTgout1e_int1e_spsypy(double *gout, double *g, FINT *idx, CINTEnvVars *envs, FINT gout_empty) {
 FINT nf = envs->nf;
 FINT ix, iy, iz, n;
@@ -2544,15 +2544,15 @@ s[6] = + g1[ix+0]*g0[iy+0]*g2[iz+0];
 s[7] = + g0[ix+0]*g1[iy+0]*g2[iz+0];
 s[8] = + g0[ix+0]*g0[iy+0]*g3[iz+0];
 if (gout_empty) {
-gout[n*4+0] = - c[0]*s[1];
-gout[n*4+1] = - c[0]*s[4];
-gout[n*4+2] = - c[0]*s[7];
-gout[n*4+3] = 0;
+gout[n*4+0] = - s[7];
+gout[n*4+1] = 0;
+gout[n*4+2] = + s[1];
+gout[n*4+3] = + s[4];
 } else {
-gout[n*4+0] += - c[0]*s[1];
-gout[n*4+1] += - c[0]*s[4];
-gout[n*4+2] += - c[0]*s[7];
-gout[n*4+3] += 0;
+gout[n*4+0] += - s[7];
+gout[n*4+1] += 0;
+gout[n*4+2] += + s[1];
+gout[n*4+3] += + s[4];
 }}}
 void int1e_spsypy_optimizer(CINTOpt **opt, FINT *atm, FINT natm, FINT *bas, FINT nbas, double *env) {
 FINT ng[] = {1, 1, 0, 0, 2, 4, 1, 1};
@@ -2580,11 +2580,11 @@ FINT ng[] = {1, 1, 0, 0, 2, 4, 1, 1};
 CINTEnvVars envs;
 CINTinit_int1e_EnvVars(&envs, ng, shls, atm, natm, bas, nbas, env);
 envs.f_gout = &CINTgout1e_int1e_spsypy;
-return CINT1e_spinor_drv(out, dims, &envs, cache, &c2s_si_1ei, 0);
+return CINT1e_spinor_drv(out, dims, &envs, cache, &c2s_si_1e, 0);
 } // int1e_spsypy_spinor
 ALL_CINT1E(int1e_spsypy)
 ALL_CINT1E_FORTRAN_(int1e_spsypy)
-/* <SIGMA DOT P i|OVLP |SIGMAZ PZ j> */
+/* <SIGMA DOT P i|OVLP |COMP-Z SIGMA COMP-Z P j> */
 void CINTgout1e_int1e_spszpz(double *gout, double *g, FINT *idx, CINTEnvVars *envs, FINT gout_empty) {
 FINT nf = envs->nf;
 FINT ix, iy, iz, n;
@@ -2610,15 +2610,15 @@ s[6] = + g1[ix+0]*g0[iy+0]*g2[iz+0];
 s[7] = + g0[ix+0]*g1[iy+0]*g2[iz+0];
 s[8] = + g0[ix+0]*g0[iy+0]*g3[iz+0];
 if (gout_empty) {
-gout[n*4+0] = - c[0]*s[2];
-gout[n*4+1] = - c[0]*s[5];
-gout[n*4+2] = - c[0]*s[8];
-gout[n*4+3] = 0;
+gout[n*4+0] = + s[5];
+gout[n*4+1] = - s[2];
+gout[n*4+2] = 0;
+gout[n*4+3] = + s[8];
 } else {
-gout[n*4+0] += - c[0]*s[2];
-gout[n*4+1] += - c[0]*s[5];
-gout[n*4+2] += - c[0]*s[8];
-gout[n*4+3] += 0;
+gout[n*4+0] += + s[5];
+gout[n*4+1] += - s[2];
+gout[n*4+2] += 0;
+gout[n*4+3] += + s[8];
 }}}
 void int1e_spszpz_optimizer(CINTOpt **opt, FINT *atm, FINT natm, FINT *bas, FINT nbas, double *env) {
 FINT ng[] = {1, 1, 0, 0, 2, 4, 1, 1};
@@ -2646,7 +2646,7 @@ FINT ng[] = {1, 1, 0, 0, 2, 4, 1, 1};
 CINTEnvVars envs;
 CINTinit_int1e_EnvVars(&envs, ng, shls, atm, natm, bas, nbas, env);
 envs.f_gout = &CINTgout1e_int1e_spszpz;
-return CINT1e_spinor_drv(out, dims, &envs, cache, &c2s_si_1ei, 0);
+return CINT1e_spinor_drv(out, dims, &envs, cache, &c2s_si_1e, 0);
 } // int1e_spszpz_spinor
 ALL_CINT1E(int1e_spszpz)
 ALL_CINT1E_FORTRAN_(int1e_spszpz)
