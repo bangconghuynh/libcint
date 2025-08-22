@@ -90,7 +90,13 @@
   '("int1e_pp"                  (p \| p))
   '("int1e_spp"                 (sigma dot p \| p))
   '("int1e_spsxpx"              (sigma dot p \| comp-x sigma comp-x p))
+  '("int1e_spsxpy"              (sigma dot p \| comp-x sigma comp-y p))
+  '("int1e_spsxpz"              (sigma dot p \| comp-x sigma comp-z p))
+  '("int1e_spsypx"              (sigma dot p \| comp-y sigma comp-x p))
   '("int1e_spsypy"              (sigma dot p \| comp-y sigma comp-y p))
+  '("int1e_spsypz"              (sigma dot p \| comp-y sigma comp-z p))
+  '("int1e_spszpx"              (sigma dot p \| comp-z sigma comp-x p))
+  '("int1e_spszpy"              (sigma dot p \| comp-z sigma comp-y p))
   '("int1e_spszpz"              (sigma dot p \| comp-z sigma comp-z p))
 )
 
